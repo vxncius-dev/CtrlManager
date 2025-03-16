@@ -1,0 +1,47 @@
+@import url("https://cdn-uicons.flaticon.com/2.6.0/uicons-bold-rounded/css/uicons-bold-rounded.css");
+@import url("https://fonts.googleapis.com/css2?family=Covered+By+Your+Grace&family=Host+Grotesk:ital,wght@0,300..800;1,300..800&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Schoolbell&display=swap");
+
+html {
+	scroll-behavior: smooth;
+	scroll-snap-type: y mandatory;
+	background: #f3f4f6;
+
+	::-webkit-scrollbar,
+	*::selection {
+		background: none;
+		display: none;
+		pointer-events: none;
+	}
+
+	* {
+		-webkit-user-select: none;
+		-ms-user-select: none;
+		user-select: none;
+		padding: 0;
+		margin: 0;
+		box-sizing: border-box;
+		text-decoration: none;
+		background: none;
+		border: none;
+		outline: none;
+		font-family: "Host Grotesk", sans-serif;
+	}
+
+	body {
+		scroll-snap-type: y mandatory;
+
+		section {
+			max-width: 1200px;
+			min-width: 380px;
+			min-height: 500px;
+			height: 100vh;
+			scroll-snap-align: start;
+
+			table {
+				border-collapse: separate;
+				border: solid #ccc 1px;
+				border-radius: 10px;
+			}
+		}
+	}
+}
