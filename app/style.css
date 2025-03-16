@@ -24,21 +24,17 @@ html {
 		font-family: "Host Grotesk", sans-serif;
 	}
 
-	body {
-		scroll-snap-type: y mandatory;
+	section {
+		max-width: 1200px;
+		min-width: 380px;
+		min-height: 500px;
+		height: 100vh;
+		scroll-snap-align: start;
 
-		section {
-			max-width: 1200px;
-			min-width: 380px;
-			min-height: 500px;
-			height: 100vh;
-			scroll-snap-align: start;
-
-			table {
-				border-collapse: separate;
-				border: solid #ccc 1px;
-				border-radius: 10px;
-			}
+		table {
+			border-collapse: separate;
+			border: solid #ccc 1px;
+			border-radius: 10px;
 		}
 	}
 }
