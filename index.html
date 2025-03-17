@@ -19,105 +19,91 @@
 </head>
 
 <body>
-	<nav class="fixed w-screen text-black p-4 flex justify-center items-center">
-		<div class="w-full flex justify-between items-center max-w-6xl">
-			<div class="logo flex gap-x-2">
-				<img src="./app/logo.png" alt="logo" width="35" class="invert">
-				<h2 class="text-2xl font-bold">CtrlManager</h2>
-			</div>
-			<button id="login-button"
-				class="bg-black text-white px-4 py-1 rounded-full hover:bg-gray-600 flex items-center">
-				<i class="fab fa-google mr-2"></i> Log in
-			</button>
-		</div>
-	</nav>
-
-	<section id="hero-section" class="py-16 flex justify-center items-center min-h-screen mx-auto">
-		<div class="hero-content flex flex-col justify-center items-center max-w-2xl mx-auto px-10 text-center">
-			<h1 class="text-4xl md:text-5xl font-bold text-black mb-2">Track Your<br>Expenses Easily</h1>
-			<p class="subtitle text-sm text-gray-500 mb-6 max-w-xs">Manage your budget, set limits, and monitor your
-				financial health in real-time.</p>
-			<button id="explore-btn" class="btn-primary bg-black text-white py-2 px-6 rounded-full"
-				title="Learn more about our features">Explore Features</button>
-		</div>
-	</section>
-
-	<section id="features-section" class="py-16 h-screen mx-auto">
-		<div class="text-center mx-auto flex flex-col justify-center items-center max-w-2xl px-10 h-full">
-			<article class="mb-4">
-				<h2 class="text-2xl font-bold mb-2">Budget Management</h2>
-				<p class="text-sm text-gray-600 max-w-sm">Set spending limits for each category and monitor your
-					progress in real-time. Take control of your finances with adjustable limits and timely notifications
-					to stay on track.</p>
-			</article>
-			<article class="mb-4">
-				<h2 class="text-2xl font-bold mb-2">Expense Tracking</h2>
-				<p class="text-sm text-gray-600 max-w-sm">Record all your expenses in one place. Visualize your spending
-					with categorized graphs and reports to identify savings opportunities and avoid surprises.</p>
-			</article>
-			<article class="mb-4">
-				<h2 class="text-2xl font-bold mb-2">Financial Insights</h2>
-				<p class="text-sm text-gray-600 max-w-sm">Access detailed reports and personalized insights to enhance
-					your money management. Track your progress and receive tailored tips to achieve your financial
-					goals.</p>
-			</article>
-			<button id="start-btn" class="btn-primary bg-black text-white py-2 px-6 rounded-full"
-				title="Get started with the app now">Start Now</button>
-		</div>
-	</section>
-
-	<section id="app-section" class="py-2 mx-auto pt-16">
-		<div class="app-frame">
-			<div class="px-4">
-				<div class="flex flex-wrap justify-end gap-2 mb-4">
-					<input id="filterInput" type="text" placeholder="Filter by category..."
-						class="border bg-gray-200 py-2 h-8 rounded-full px-4 w-64" />
-					<button id="openModal"
-						class="bg-black text-white flex justify-center items-center w-8 h-8 rounded-full hover:bg-gray-600">
-						<i class="fas fa-plus text-white text-base"></i>
-					</button>
+	<section class="flex flex-col min-h-screen mx-auto">
+		<nav class="fixed w-screen text-black p-4 flex justify-center items-center">
+			<div class="w-full flex justify-between items-center max-w-6xl">
+				<div class="logo flex gap-x-2">
+					<img src="https://cdn-icons-png.flaticon.com/128/12205/12205473.png" alt="logo" width="35">
+					<h2 class="text-2xl font-bold">CtrlManager</h2>
 				</div>
-
-				<table class="w-full">
-					<thead>
-						<tr>
-							<th class="p-2 text-left text-sm">Amount</th>
-							<th class="p-2 text-left text-sm">Category</th>
-							<th class="p-2 text-left text-sm">Notes</th>
-							<th class="p-2 text-left text-sm">Date</th>
-							<th class="p-2 text-left"></th>
-						</tr>
-					</thead>
-					<tbody id="expensesTable"></tbody>
-				</table>
-
-				<div id="contextMenu" class="hidden absolute bg-gray-200 rounded-lg shadow-lg">
-					<button id="deleteOption" class="block w-full text-left px-2 py-1 text-red-500">Delete</button>
-					<button id="editOption" class="block w-full text-left px-2 py-1 text-blue-500">Edit</button>
-				</div>
+				<button id="login-button" class="bg-black text-white px-4 py-1 rounded-full hover:bg-gray-600 flex items-center">
+					<i class="fab fa-google mr-2"></i> Log in
+				</button>
 			</div>
-
-			<div id="expenseModal"
-				class="fixed inset-0 bg-gray-600 bg-opacity-50 hidden flex items-center justify-center">
-				<div class="bg-white p-6 rounded-lg w-96">
-					<h3 class="text-xl font-bold mb-4">Add New Expense</h3>
-					<div class="grid grid-cols-1 gap-4">
-						<input id="modalAmount" type="number" placeholder="Amount" class="border p-2 rounded" />
-						<input id="modalCategory" type="text" placeholder="Category" class="border p-2 rounded" />
-						<input id="modalNotes" type="text" placeholder="Notes" class="border p-2 rounded" />
-						<input id="modalDate" type="date" class="border p-2 rounded" />
-						<div class="flex justify-end gap-2">
-							<button id="closeModal" class="bg-gray-300 px-4 py-2 rounded-lg hover:bg-gray-400">
-								Cancel
-							</button>
-							<button id="saveExpense" class="bg-black text-white px-4 py-2 rounded-lg hover:bg-gray-800">
-								Save
-							</button>
+		</nav>
+		
+		<div id="container">
+			<div id="hero-section" class="flex flex-col justify-center items-center max-w-2xl mx-auto px-10 text-center">
+				<h1 class="text-4xl md:text-5xl font-bold text-black mb-2">Track Your<br>Expenses Easily</h1>
+				<p class="subtitle text-sm text-gray-500 mb-6 max-w-xs">Manage your budget, set limits, and monitor your financial health in real-time.</p>
+				<button id="explore-btn" class="btn-primary bg-black text-white py-2 px-6 rounded-full" title="Learn more about our features">Explore Features</button>
+			</div>
+		
+			<div id="features-section" class="text-center mx-auto flex flex-col justify-center items-center max-w-2xl px-10 h-full">
+				<article class="mb-4">
+					<h2 class="text-2xl font-bold mb-2">Budget Management</h2>
+					<p class="text-sm text-gray-600 max-w-sm">Set spending limits for each category and monitor your progress in real-time. Take control of your finances with adjustable limits and timely notifications to stay on track.</p>
+				</article>
+				<article class="mb-4">
+					<h2 class="text-2xl font-bold mb-2">Expense Tracking</h2>
+					<p class="text-sm text-gray-600 max-w-sm">Record all your expenses in one place. Visualize your spending with categorized graphs and reports to identify savings opportunities and avoid surprises.</p>
+				</article>
+				<article class="mb-4">
+					<h2 class="text-2xl font-bold mb-2">Financial Insights</h2>
+					<p class="text-sm text-gray-600 max-w-sm">Access detailed reports and personalized insights to enhance your money management. Track your progress and receive tailored tips to achieve your financial goals.</p>
+				</article>
+				<button id="start-btn" class="btn-primary bg-black text-white py-2 px-6 rounded-full" title="Get started with the app now">Start Now</button>
+			</div>
+		
+			<div id="app-section" class="app-frame">
+				<div class="px-4 pt-16">
+					<div class="flex flex-wrap justify-end gap-2 mb-4">
+						<input id="filterInput" type="text" placeholder="Filter by category..." class="border bg-gray-200 py-2 h-8 rounded-full px-4 w-64" />
+						<button id="openModal" class="bg-black text-white flex justify-center items-center w-8 h-8 rounded-full hover:bg-gray-600">
+							<i class="fas fa-plus text-white text-base"></i>
+						</button>
+					</div>
+		
+					<table class="w-full">
+						<thead>
+							<tr>
+								<th class="p-2 text-left text-sm">Amount</th>
+								<th class="p-2 text-left text-sm">Category</th>
+								<th class="p-2 text-left text-sm">Notes</th>
+								<th class="p-2 text-left text-sm">Date</th>
+								<th class="p-2 text-left"></th>
+							</tr>
+						</thead>
+						<tbody id="expensesTable"></tbody>
+					</table>
+		
+					<div id="contextMenu" class="hidden absolute bg-gray-200 rounded-lg shadow-lg">
+						<button id="deleteOption" class="block w-full text-left px-2 py-1 text-red-500">Delete</button>
+						<button id="editOption" class="block w-full text-left px-2 py-1 text-blue-500">Edit</button>
+					</div>
+				</div>
+		
+				<div id="expenseModal" class="fixed inset-0 bg-gray-600 bg-opacity-50 hidden flex items-center justify-center">
+					<div class="bg-white p-6 rounded-lg w-96">
+						<h3 class="text-xl font-bold mb-4">Add New Expense</h3>
+						<div class="grid grid-cols-1 gap-4">
+							<input id="modalAmount" type="number" placeholder="Amount" class="border p-2 rounded" />
+							<input id="modalCategory" type="text" placeholder="Category" class="border p-2 rounded" />
+							<input id="modalNotes" type="text" placeholder="Notes" class="border p-2 rounded" />
+							<input id="modalDate" type="date" class="border p-2 rounded" />
+							<div class="flex justify-end gap-2">
+								<button id="closeModal" class="bg-gray-300 px-4 py-2 rounded-lg hover:bg-gray-400">
+									Cancel
+								</button>
+								<button id="saveExpense" class="bg-black text-white px-4 py-2 rounded-lg hover:bg-gray-800">
+									Save
+								</button>
+							</div>
 						</div>
 					</div>
 				</div>
 			</div>
-		</div>
+			</div>
 	</section>
 	<script src="./app/script.js"></script>
 </body>
