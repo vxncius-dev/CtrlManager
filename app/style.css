@@ -41,4 +41,8 @@ html {
 		border: solid #ccc 1px;
 		border-radius: 10px;
 	}
+
+	#expenseModal input{
+		border: 1px solid #ccc;
+	}
 }
