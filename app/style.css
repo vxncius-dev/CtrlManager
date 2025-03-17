@@ -24,8 +24,14 @@ html {
 		font-family: "Host Grotesk", sans-serif;
 	}
 
+	section {
+		display: flex;
+		scroll-snap-type: y mandatory;
+	}
+
 	#container {
-		scroll-snap-align: start;
+		overflow: auto;
+		scroll-snap-type: y mandatory;
 		height: 80vh;
 	}
 
@@ -33,7 +39,7 @@ html {
 	#features-section,
 	#app-section {
 		scroll-snap-align: start;
-		height: 100vh;
+		height: 100%;
 	}
 
 	table {
@@ -42,7 +48,7 @@ html {
 		border-radius: 10px;
 	}
 
-	#expenseModal input{
+	#expenseModal input {
 		border: 1px solid #ccc;
 	}
 }
