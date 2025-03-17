@@ -1,6 +1,6 @@
 class CtrlManager {
 	constructor() {
-		this.parentObject = JSON.parse(localStorage.getItem("CtrlManager-localData"));
+		this.parentObject = JSON.parse(localStorage.getItem("CtrlManager-local")) || {};
 		this.tableBody = document.getElementById("expensesTable");
 		this.viewMoreBtn = document.getElementById("explore-btn");
 		this.tryNowBtn = document.getElementById("start-btn");
@@ -22,6 +22,11 @@ class CtrlManager {
 	}
 
 	addExpense(amount, category, notes, date) {
+		if (!this.parentObject) {
+			console.error("parentObject não foi inicializado corretamente.");
+			return;
+		}
+
 		const id = this.generateUniqueId();
 		this.parentObject[id] = {
 			id,
@@ -46,18 +51,22 @@ class CtrlManager {
 		const filteredExpenses = expenses.filter((expense) =>
 			expense.category.toLowerCase().includes(filter.toLowerCase())
 		);
+
 		filteredExpenses.forEach((expense) => {
 			const tr = document.createElement("tr");
 			tr.setAttribute("data-id", expense.id);
-			tr.classList.add("hover:bg-gray-200");
 			tr.innerHTML = `
-		                <td class="p-2 border">${expense.amount.toFixed(2)}</td>
-		                <td class="p-2 border">${expense.category}</td>
-		                <td class="p-2 border">${expense.notes}</td>
-		               	<td class="p-2 border">${new Date(expense.date).toLocaleDateString("pt-BR", {
-					day: "2-digit", month: "2-digit" })}</td>
-		                <td class="p-2 border"></td>
-		            `;
+                <td class="p-2">${expense.amount.toFixed(2)}</td>
+                <td class="p-2">${expense.category}</td>
+                <td class="p-2">${expense.notes}</td>
+               	<td class="p-2">${new Date(expense.date).toLocaleDateString(
+																	"pt-BR",
+																	{
+																		day: "2-digit",
+																		month: "2-digit"
+																	}
+																)}</td>
+            `;
 			this.tableBody.appendChild(tr);
 		});
 	}
@@ -115,7 +124,7 @@ class CtrlManager {
 			}
 		};
 
-		saveExpenseBtn.removeEventListener("click", this.addExpenseHandler);
+		saveExpenseBtn.removeEventListener("click", () => this.addExpenseHandler());
 		saveExpenseBtn.addEventListener("click", saveHandler);
 	}
 
@@ -156,11 +165,11 @@ class CtrlManager {
 
 		closeModalBtn.addEventListener("click", () => {
 			modal.classList.add("hidden");
-			saveExpenseBtn.removeEventListener("click", this.addExpenseHandler);
-			saveExpenseBtn.addEventListener("click", this.addExpenseHandler);
+			saveExpenseBtn.removeEventListener("click", () => this.addExpenseHandler());
+			saveExpenseBtn.addEventListener("click", () => this.addExpenseHandler());
 		});
 
-		saveExpenseBtn.addEventListener("click", this.addExpenseHandler);
+		saveExpenseBtn.addEventListener("click", () => this.addExpenseHandler());
 
 		this.filterInput.addEventListener("input", (e) => {
 			this.renderExpenses(e.target.value);
