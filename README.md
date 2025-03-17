@@ -9,7 +9,7 @@ Additionally, the app allows you to edit and delete expenses through a context m
 
 ## Screenshot
 
-![CtrlManager Thumbnail](https://github.com/user-attachments/assets/efedab52-28eb-4b7c-9511-e064b4339e79)
+![CtrlManager Thumbnail](https://github.com/user-attachments/assets/54a80528-425e-46fd-8a39-9d518a1d1ed9)
 
 ## License
 
